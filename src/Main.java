@@ -12,6 +12,6 @@ public class Main implements ActionListener  {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Boop");
-		
+		//todo - get the button values in logic to connect with the buttons in graphics
 	}
 }

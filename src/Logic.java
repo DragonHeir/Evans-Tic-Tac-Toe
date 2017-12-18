@@ -24,7 +24,6 @@ public class Logic {
 	}
 	public boolean handleDrawCondition() {
 boolean replay = false;
-		
 		return replay;
 	}
 }

@@ -1,4 +1,5 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -25,8 +26,13 @@ public class Graphics {
 
 	}
 
-	int getClickedButtonLocation() {
-		return 0;
+	int getClickedButtonLocation(ActionEvent e) {
+		for (int i = 0; i < tiles.length; i++) {
+			if (e.getSource() == tiles[i]) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	void resetGame() {
@@ -38,5 +44,14 @@ public class Graphics {
 			tiles[i].addActionListener(a);			
 		}
 
+	}
+	public void setTileContents(int turn, int tile){
+		if (turn == Logic.xTurn) {
+			tiles[tile].setText("X");
+		}
+		else {
+			tiles[tile].setText("O");
+		}
+		tiles[tile].setEnabled(false);
 	}
 }

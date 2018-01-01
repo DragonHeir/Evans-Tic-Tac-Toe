@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graphics {
+public class View {
 	JFrame gameWindow = new JFrame("Tic Tac Toe");
 	JPanel playField = new JPanel(new GridLayout(3,3));
 	JButton[] tiles = new JButton[9];
 
-	Graphics() {
+	View() {
 		gameWindow.add(playField);
 		for (int i = 0; i < tiles.length; i++) {
 			tiles[i] = new JButton();
@@ -36,7 +36,10 @@ public class Graphics {
 	}
 
 	void resetGame() {
-
+		for (int i = 0; i < tiles.length; i++) {
+			tiles[i].setText("");
+			tiles[i].setEnabled(true);
+		}
 	}
 
 	void setActionListener(ActionListener a) {
@@ -46,7 +49,7 @@ public class Graphics {
 
 	}
 	public void setTileContents(int turn, int tile){
-		if (turn == Logic.xTurn) {
+		if (turn == Model.xTurn) {
 			tiles[tile].setText("X");
 		}
 		else {
